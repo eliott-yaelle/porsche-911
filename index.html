@@ -1,0 +1,622 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Porsche 911 | Black & Pink Edition</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #101014;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        /* BARRE DE NAVIGATION */
+
+        header {
+            background: #18181f;
+            padding: 20px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #35353d;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            letter-spacing: 3px;
+        }
+
+        .logo span {
+            color: #ff3860;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 22px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #ff80ba;
+        }
+
+        /* PAGE D'ACCUEIL */
+
+        .hero {
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background:
+                linear-gradient(
+                    rgba(0,0,0,0.45),
+                    rgba(0,0,0,0.85)
+                ),
+                url("https://images.unsplash.com/photo-1503376780353-7e6692767b70");
+
+            background-size: cover;
+            background-position: center;
+            padding: 40px 20px;
+        }
+
+        .hero h1 {
+            font-size: 65px;
+            letter-spacing: 5px;
+        }
+
+        .hero h1 span {
+            color: #ff3860;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: #ddd;
+            margin-top: 15px;
+        }
+
+        .bouton {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 15px 30px;
+            background: linear-gradient(90deg, #ff304f, #ff80ba);
+            color: white;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .bouton:hover {
+            transform: scale(1.08);
+            box-shadow: 0 0 25px #ff477e;
+        }
+
+        /* SECTIONS */
+
+        section {
+            padding: 80px 8%;
+        }
+
+        .titre {
+            text-align: center;
+            font-size: 38px;
+            margin-bottom: 45px;
+        }
+
+        .titre span {
+            color: #ff568b;
+        }
+
+        /* PRESENTATION */
+
+        .presentation {
+            max-width: 900px;
+            margin: auto;
+            text-align: center;
+            line-height: 1.9;
+            color: #ccc;
+            font-size: 18px;
+        }
+
+        /* HISTOIRE */
+
+        .histoire {
+            background: #1d1d25;
+            border-radius: 20px;
+            padding: 35px;
+            line-height: 1.9;
+            color: #ccc;
+            border-left: 4px solid #ff3860;
+        }
+
+        /* CATEGORIES */
+
+        .categorie {
+            margin-bottom: 30px;
+            color: #ff668b;
+            font-size: 25px;
+        }
+
+        /* CARTES DES MODELES */
+
+        .modeles {
+            display: grid;
+            grid-template-columns: repeat(
+                auto-fit,
+                minmax(250px, 1fr)
+            );
+            gap: 30px;
+        }
+
+        .carte {
+            background: #202029;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid #393943;
+            transition: 0.35s;
+        }
+
+        .carte:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 12px 35px #ff304f44;
+        }
+
+        .carte img {
+            width: 100%;
+            height: 210px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .contenu {
+            padding: 23px;
+        }
+
+        .contenu h3 {
+            color: #ff536f;
+            font-size: 23px;
+            margin-bottom: 12px;
+        }
+
+        .contenu p {
+            color: #ccc;
+            line-height: 1.6;
+        }
+
+        /* UNIVERS ROSE */
+
+        .pink-section {
+            background:
+                linear-gradient(135deg, #25121f, #15131d);
+            border-top: 1px solid #66334f;
+            border-bottom: 1px solid #66334f;
+        }
+
+        .pink-section .titre span {
+            color: #ff91cc;
+        }
+
+        .pink-card {
+            background: linear-gradient(
+                145deg,
+                #40243a,
+                #211a2b
+            );
+            border: 1px solid #ff83c5;
+        }
+
+        .pink-card h3 {
+            color: #ff9bd1;
+        }
+
+        .pink-card:hover {
+            box-shadow: 0 12px 35px #ff83c566;
+        }
+
+        .pink-card img {
+            filter: sepia(0.35) saturate(1.8)
+                    hue-rotate(285deg);
+        }
+
+        /* FICHE TECHNIQUE */
+
+        .infos {
+            display: grid;
+            grid-template-columns: repeat(
+                auto-fit,
+                minmax(180px, 1fr)
+            );
+            gap: 22px;
+        }
+
+        .info {
+            background: #202029;
+            text-align: center;
+            padding: 30px 15px;
+            border-radius: 18px;
+            border-bottom: 3px solid #ff3860;
+            transition: 0.3s;
+        }
+
+        .info:hover {
+            background: #30202c;
+            transform: scale(1.04);
+        }
+
+        .info h3 {
+            color: #ff80ba;
+            font-size: 25px;
+            margin-bottom: 12px;
+        }
+
+        .info p {
+            color: #ccc;
+        }
+
+        /* BAS DE PAGE */
+
+        footer {
+            background: #18181f;
+            text-align: center;
+            padding: 35px;
+            border-top: 1px solid #393943;
+            color: #aaa;
+            line-height: 2;
+        }
+
+        footer span {
+            color: #ff568b;
+        }
+
+        /* ADAPTATION TELEPHONE */
+
+        @media screen and (max-width: 700px) {
+
+            header {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            nav {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 12px;
+            }
+
+            nav a {
+                margin: 0;
+            }
+
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            section {
+                padding: 55px 6%;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- MENU -->
+
+    <header>
+
+        <div class="logo">
+            PORSCHE <span>911</span>
+        </div>
+
+        <nav>
+            <a href="#accueil">Accueil</a>
+            <a href="#histoire">Histoire</a>
+            <a href="#modeles">Modèles</a>
+            <a href="#pink">Pink Edition</a>
+            <a href="#infos">Caractéristiques</a>
+        </nav>
+
+    </header>
+
+    <!-- ACCUEIL -->
+
+    <div class="hero" id="accueil">
+
+        <div>
+            <h1>THE <span>911</span> LEGEND</h1>
+
+            <p>Une icône. Une passion. Une légende.</p>
+
+            <a href="#modeles" class="bouton">
+                Découvrir les Porsche
+            </a>
+        </div>
+
+    </div>
+
+    <!-- PRESENTATION -->
+
+    <section>
+
+        <h2 class="titre">
+            Une voiture <span>mythique</span>
+        </h2>
+
+        <div class="presentation">
+
+            <p>
+                Depuis 1963, la Porsche 911 fait rêver les
+                passionnés d'automobile du monde entier.
+
+                Avec son design reconnaissable, son moteur
+                à l'arrière et ses performances sportives,
+                elle est devenue une véritable légende.
+
+                Au fil des générations, elle a su évoluer
+                tout en conservant son identité.
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- HISTOIRE -->
+
+    <section id="histoire">
+
+        <h2 class="titre">
+            Une <span>histoire</span> légendaire
+        </h2>
+
+        <div class="histoire">
+
+            <p>
+                La Porsche 911 a été présentée en 1963
+                au salon automobile de Francfort.
+
+                Elle est commercialisée à partir de 1964.
+                Depuis, plusieurs générations ont vu le jour.
+
+                Chaque génération apporte des améliorations
+                techniques et esthétiques, mais la silhouette
+                de la 911 reste immédiatement reconnaissable.
+
+                Aujourd'hui, elle reste l'un des modèles
+                les plus emblématiques de Porsche.
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- MODELES CLASSIQUES -->
+
+    <section id="modeles">
+
+        <h2 class="titre">
+            Les modèles <span>emblématiques</span>
+        </h2>
+
+        <h3 class="categorie">Les sportives classiques</h3>
+
+        <div class="modeles">
+
+            <div class="carte">
+
+                <img
+                src="https://images.unsplash.com/photo-1503376780353-7e6692767b70"
+                alt="Porsche sportive">
+
+                <div class="contenu">
+                    <h3>911 Carrera</h3>
+
+                    <p>
+                        Le modèle emblématique de la gamme,
+                        qui représente parfaitement l'esprit
+                        de la Porsche 911.
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="carte">
+
+                <img
+                src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7"
+                alt="Voiture sportive">
+
+                <div class="contenu">
+                    <h3>911 Turbo S</h3>
+
+                    <p>
+                        Une version très performante,
+                        qui associe puissance, technologie
+                        et confort.
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="carte">
+
+                <img
+                src="https://images.unsplash.com/photo-1503376780353-7e6692767b70"
+                alt="Voiture sportive">
+
+                <div class="contenu">
+                    <h3>911 GT3 RS</h3>
+
+                    <p>
+                        Une version orientée circuit,
+                        avec une conception pensée
+                        pour la performance.
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="carte">
+
+                <img
+                src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7"
+                alt="Voiture sportive">
+
+                <div class="contenu">
+                    <h3>911 Targa</h3>
+
+                    <p>
+                        Une Porsche reconnaissable grâce
+                        à son toit caractéristique.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- MODELES ROSES -->
+
+    <section class="pink-section" id="pink">
+
+        <h2 class="titre">
+            The <span>Pink</span> Collection
+        </h2>
+
+        <div class="presentation">
+            <p>
+                La Porsche 911 peut également être personnalisée
+                avec des couleurs originales.
+
+                Voici notre sélection imaginaire de modèles
+                roses et de personnalisations Rose Gold.
+            </p>
+        </div>
+
+        <br><br>
+
+        <div class="modeles">
+
+            <div class="carte pink-card">
+
+                <img
+                src="https://images.unsplash.com/photo-1503376780353-7e6692767b70"
+                alt="Inspiration Porsche rose">
+
+                <div class="contenu">
+                    <h3>911 Pink Edition</h3>
+
+                    <p>
+                        Une personnalisation rose pastel
+                        pour un style original et élégant.
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="carte pink-card">
+
+                <img
+                src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7"
+                alt="Inspiration voiture rose">
+
+                <div class="contenu">
+                    <h3>911 Rose Gold</h3>
+
+                    <p>
+                        Une association de rose et de doré
+                        pour une apparence luxueuse.
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="carte pink-card">
+
+                <img
+                src="https://images.unsplash.com/photo-1503376780353-7e6692767b70"
+                alt="Inspiration voiture personnalisée">
+
+                <div class="contenu">
+                    <h3>911 Pink Racing</h3>
+
+                    <p>
+                        Une personnalisation rose inspirée
+                        de l'univers de la compétition.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- CARACTERISTIQUES -->
+
+    <section id="infos">
+
+        <h2 class="titre">
+            Quelques <span>caractéristiques</span>
+        </h2>
+
+        <div class="infos">
+
+            <div class="info">
+                <h3>1963</h3>
+                <p>Présentation du modèle</p>
+            </div>
+
+            <div class="info">
+                <h3>6 cylindres</h3>
+                <p>Moteur à plat sur les versions actuelles</p>
+            </div>
+
+            <div class="info">
+                <h3>Arrière</h3>
+                <p>Position du moteur</p>
+            </div>
+
+            <div class="info">
+                <h3>Allemagne</h3>
+                <p>Pays d'origine</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p>PORSCHE 911 - <span>BLACK & PINK EDITION</span></p>
+
+        <p>Site réalisé dans le cadre d'un travail scolaire.</p>
+
+        <p>Passion automobile ❤️</p>
+
+    </footer>
+
+</body>
+</html>
